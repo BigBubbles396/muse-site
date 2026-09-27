@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Longevity Dashboard &middot; Jeffrey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#070b12; --bg2:#0b111c; --card:#101827cc; --card-solid:#101827;
+  --line:#1e2a3f; --txt:#eef3fb; --mut:#8fa0b8;
+  --acc:#5eead4; --acc2:#7dd3fc; --vio:#c4b5fd; --amber:#fcd34d; --rose:#fda4af; --green:#6ee7b7;
+  --rad:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1200px 600px at 80% -10%,#12233d 0%,var(--bg) 55%) fixed,var(--bg);
+  color:var(--txt);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px 80px}
+.hero{padding:64px 0 8px;position:relative}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--acc);font-weight:700;border:1px solid #23465f;background:#0e1c2c;border-radius:999px;padding:8px 16px}
+.hero h1{font-family:"Space Grotesk",Inter,sans-serif;font-size:clamp(38px,6vw,64px);line-height:1.04;margin:22px 0 12px;font-weight:700}
+.hero h1 .grad{background:linear-gradient(92deg,var(--acc),var(--acc2) 55%,var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{color:var(--mut);font-size:17px;max-width:640px;line-height:1.6}
+.meta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.meta{font-size:13px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:#0d1522}
+.meta b{color:var(--txt)}
+section{margin-top:44px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+.sec-head h2{font-family:"Space Grotesk",Inter,sans-serif;font-size:24px;font-weight:700}
+.sec-head .tag{font-size:12px;color:var(--mut);letter-spacing:.08em;text-transform:uppercase}
+.grid{display:grid;gap:16px}
+.kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.two{grid-template-columns:1fr 1fr}
+@media(max-width:860px){.two{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,#111b2cf2,#0d1421f2);border:1px solid var(--line);border-radius:var(--rad);
+  padding:22px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--acc),transparent);opacity:.5}
+.card h3{font-size:13px;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.kpi .num{font-family:"Space Grotesk",Inter,sans-serif;font-size:38px;font-weight:700;line-height:1.1}
+.kpi .num small{font-size:16px;color:var(--mut);font-weight:600}
+.kpi .lbl{color:var(--mut);font-size:13px;margin-top:6px}
+.kpi .delta{font-size:12px;margin-top:8px;font-weight:600}
+.up{color:var(--green)} .down{color:var(--rose)} .flat{color:var(--mut)}
+canvas{width:100%!important;max-height:300px}
+.chart-card canvas{max-height:320px}
+.insight{border-left:3px solid var(--acc);padding:14px 18px;background:#0d1626;border-radius:0 12px 12px 0;margin:12px 0}
+.insight p{font-size:15px;line-height:1.65;color:#dbe6f5}
+.insight b{color:var(--acc)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;color:var(--mut);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em;
+  padding:10px 8px;border-bottom:1px solid var(--line)}
+td{padding:12px 8px;border-bottom:1px solid #16203200;border-bottom:1px solid #141e30}
+tr:last-child td{border-bottom:none}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#123047;color:var(--acc2)}
+footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);color:var(--mut);font-size:13px;line-height:1.7}
+.note{font-size:12px;color:#6b7d95;margin-top:10px}
+.pulse{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--green);margin-right:8px;
+  box-shadow:0 0 0 0 #6ee7b780;animation:pl 2s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="kicker"><span class="pulse"></span>Live from Apple Watch</span>
+  <h1>Your body, <span class="grad">in data.</span></h1>
+  <p class="sub">A longevity dashboard built from your synced Apple Health data &mdash; sleep, heart, and movement trends, updated from your watch.</p>
+  <div class="meta-row">
+    <span class="meta">Window <b>Sep 19 &ndash; Sep 27, 2026</b></span>
+    <span class="meta"><b>9 days</b> of data</span>
+    <span class="meta"><b>6</b> workouts logged</span>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head"><h2>At a glance</h2><span class="tag">Sep 19 &ndash; Sep 27, 2026</span></div>
+  <div class="grid kpis">
+    <div class="card kpi"><h3>Avg sleep</h3><div class="num">5.4<small>h</small></div><div class="lbl">per night &middot; quality 49/100</div></div>
+    <div class="card kpi"><h3>Avg steps</h3><div class="num">6,696</div><div class="lbl">per day &middot; best 11,453 (Sun 09/20)</div></div>
+    <div class="card kpi"><h3>Resting HR</h3><div class="num">70.4<small>bpm</small></div><div class="lbl">daily average</div></div>
+    <div class="card kpi"><h3>HRV</h3><div class="num">29.4<small>ms</small></div><div class="lbl">daily average</div></div>
+    <div class="card kpi"><h3>VO&#8322; max</h3><div class="num">28.2<small>ml/kg/min</small></div><div class="lbl">latest estimate</div></div>
+    <div class="card kpi"><h3>Workouts</h3><div class="num">6</div><div class="lbl">394 min &middot; 17.1 mi total</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Sleep</h2><span class="tag">stages &middot; timing &middot; quality</span></div>
+  <div class="grid two">
+    <div class="card chart-card"><h3>Hours asleep per night</h3><canvas id="cSleep"></canvas></div>
+    <div class="card chart-card"><h3>Sleep stages</h3><canvas id="cStages"></canvas></div>
+  </div>
+  <div class="grid two" style="margin-top:16px">
+    <div class="card chart-card"><h3>Bedtime &amp; wake time</h3><canvas id="cTiming"></canvas></div>
+    <div class="card chart-card"><h3>Sleep quality score</h3><canvas id="cQual"></canvas></div>
+  </div>
+  <div class="insight"><p><b>Pattern:</b> you average <b>5.4 hours</b> of sleep, in bed around <b>21:54</b> and up around <b>03:57</b> &mdash; with about <b>3.6 awakenings</b> a night. Sleep efficiency averages <b>93.3%</b>, which is strong; total duration is the lever.</p></div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Heart</h2><span class="tag">resting HR &middot; HRV &middot; daily range</span></div>
+  <div class="grid two">
+    <div class="card chart-card"><h3>Resting heart rate trend</h3><canvas id="cRhr"></canvas></div>
+    <div class="card chart-card"><h3>Heart rate variability</h3><canvas id="cHrv"></canvas></div>
+  </div>
+  <div class="card chart-card" style="margin-top:16px"><h3>Daily heart rate range</h3><canvas id="cHrRange"></canvas></div>
+  <div class="insight"><p><b>Signal:</b> resting HR averages <b>70.4 bpm</b> and HRV <b>29.4 ms</b> across the window. Watch these two move together &mdash; resting HR drifting up while HRV drops is the classic early flag for accumulated strain or poor recovery.</p></div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Movement</h2><span class="tag">steps &middot; energy &middot; exercise</span></div>
+  <div class="grid two">
+    <div class="card chart-card"><h3>Daily steps</h3><canvas id="cSteps"></canvas></div>
+    <div class="card chart-card"><h3>Active energy (kcal)</h3><canvas id="cKcal"></canvas></div>
+  </div>
+  <div class="grid two" style="margin-top:16px">
+    <div class="card chart-card"><h3>Exercise minutes</h3><canvas id="cEx"></canvas></div>
+    <div class="card chart-card"><h3>Miles walked / run</h3><canvas id="cMiles"></canvas></div>
+  </div>
+  <div class="insight"><p><b>Signal:</b> <b>6,696 steps/day</b> with <b>434 active kcal</b> and <b>50 exercise minutes</b> daily &mdash; comfortably above the longevity sweet spot for daily movement. Consistency here is doing real work.</p></div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Workouts</h2><span class="tag">6 sessions</span></div>
+  <div class="card">
+    <table>
+      <thead><tr><th>Date</th><th>Type</th><th>Duration</th><th>Distance</th><th>Energy</th><th>Avg HR</th><th>Steps</th></tr></thead>
+      <tbody>
+        <tr><td>Sat 09/19</td><td><span class="badge">Walking</span></td><td>77 min</td><td>3.69 mi</td><td>372 kcal</td><td>107 bpm</td><td>7676</td></tr>
+        <tr><td>Sun 09/20</td><td><span class="badge">Walking</span></td><td>76 min</td><td>3.69 mi</td><td>373 kcal</td><td>104 bpm</td><td>7305</td></tr>
+        <tr><td>Wed 09/23</td><td><span class="badge">Walking</span></td><td>70 min</td><td>3.21 mi</td><td>328 kcal</td><td>106 bpm</td><td>6710</td></tr>
+        <tr><td>Thu 09/24</td><td><span class="badge">Walking</span></td><td>72 min</td><td>3.25 mi</td><td>340 kcal</td><td>104 bpm</td><td>6378</td></tr>
+        <tr><td>Fri 09/25</td><td><span class="badge">Walking</span></td><td>66 min</td><td>3.19 mi</td><td>324 kcal</td><td>104 bpm</td><td>6130</td></tr>
+        <tr><td>Sat 09/26</td><td><span class="badge">Walking</span></td><td>33 min</td><td>0.03 mi</td><td>35 kcal</td><td>81 bpm</td><td>73</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Longevity signals</h2><span class="tag">what the trends say</span></div>
+  <div class="insight"><p><b>Sleep duration is the headline.</b> At <b>5.4h/night</b> against a 7&ndash;8h target, extending time asleep is the single highest-leverage change available in this data &mdash; everything else (HRV, resting HR, recovery) tends to follow.</p></div>
+  <div class="insight"><p><b>Early, consistent wake-ups.</b> Bedtimes cluster near <b>21:54</b> with wakes near <b>03:57</b> &mdash; the rhythm is regular, which is good. The window itself is just short.</p></div>
+  <div class="insight"><p><b>Cardio base looks solid.</b> VO&#8322; max <b>28.2</b>, resting HR <b>70.4 bpm</b>, and daily walking volume all point to a healthy aerobic foundation. Keep the daily walks; they're compounding.</p></div>
+</section>
+
+<footer>
+  <p>Built from Jeffrey&rsquo;s synced Apple Health data &middot; generated Sep 27, 2026 10:59 AM HST</p>
+  <p class="note">Data syncs from Apple Watch via iPhone. Sep 19 metrics are partially synced (under-reported). The Sep 26 sleep session is mid-sync &mdash; deep/REM stages pending. Trends will sharpen as more history accumulates.</p>
+</footer>
+</div>
+<script>
+const D = {"range": {"start": "2026-09-19", "end": "2026-09-27", "days": 9}, "sleep": [{"date": "2026-09-19", "label": "Sat 09/19", "bed": "21:56", "wake": "04:04", "bed_min": 1316, "wake_min": 244, "total_h": 5.97, "core_h": 3.53, "deep_h": 0.55, "rem_h": 1.89, "quality": 55.0, "eff": 97.1, "awakenings": 3.0, "partial": false}, {"date": "2026-09-20", "label": "Sun 09/20", "bed": "22:05", "wake": "03:36", "bed_min": 1325, "wake_min": 216, "total_h": 5.26, "core_h": 2.57, "deep_h": 0.74, "rem_h": 1.96, "quality": 49.0, "eff": 95.3, "awakenings": 5.0, "partial": false}, {"date": "2026-09-21", "label": "Mon 09/21", "bed": "22:15", "wake": "03:41", "bed_min": 1335, "wake_min": 221, "total_h": 5.4, "core_h": 3.57, "deep_h": 0.82, "rem_h": 1.01, "quality": 52.0, "eff": 99.5, "awakenings": 1.0, "partial": false}, {"date": "2026-09-22", "label": "Tue 09/22", "bed": "21:42", "wake": "03:15", "bed_min": 1302, "wake_min": 195, "total_h": 5.53, "core_h": 2.87, "deep_h": 0.79, "rem_h": 1.87, "quality": 54.0, "eff": 99.7, "awakenings": 1.0, "partial": false}, {"date": "2026-09-23", "label": "Wed 09/23", "bed": "21:58", "wake": "03:52", "bed_min": 1318, "wake_min": 232, "total_h": 4.96, "core_h": 3.12, "deep_h": 0.63, "rem_h": 1.21, "quality": 38.0, "eff": 83.9, "awakenings": 4.0, "partial": false}, {"date": "2026-09-24", "label": "Thu 09/24", "bed": "22:03", "wake": "04:58", "bed_min": 1323, "wake_min": 298, "total_h": 6.11, "core_h": 2.9, "deep_h": 1.14, "rem_h": 2.07, "quality": 47.0, "eff": 88.2, "awakenings": 6.0, "partial": false}, {"date": "2026-09-25", "label": "Fri 09/25", "bed": "21:25", "wake": "03:23", "bed_min": 1285, "wake_min": 203, "total_h": 5.57, "core_h": 3.46, "deep_h": 0.88, "rem_h": 1.24, "quality": 51.0, "eff": 93.5, "awakenings": 4.0, "partial": false}, {"date": "2026-09-26", "label": "Sat 09/26", "bed": "03:41", "wake": "04:15", "bed_min": 221, "wake_min": 255, "total_h": 0.52, "core_h": 0.52, "deep_h": 0.0, "rem_h": 0.0, "quality": 43.0, "eff": 91.2, "awakenings": 0.0, "partial": true}, {"date": "2026-09-27", "label": "Sun 09/27", "bed": "00:05", "wake": "04:52", "bed_min": 5, "wake_min": 292, "total_h": 4.28, "core_h": 3.12, "deep_h": 0.27, "rem_h": 0.89, "quality": 43.0, "eff": 89.4, "awakenings": 5.0, "partial": false}], "steps": [{"date": "2026-09-19", "label": "Sat 09/19", "v": 9173.0}, {"date": "2026-09-20", "label": "Sun 09/20", "v": 11453.0}, {"date": "2026-09-21", "label": "Mon 09/21", "v": 4622.0}, {"date": "2026-09-22", "label": "Tue 09/22", "v": 2787.0}, {"date": "2026-09-23", "label": "Wed 09/23", "v": 9979.0}, {"date": "2026-09-24", "label": "Thu 09/24", "v": 9472.0}, {"date": "2026-09-25", "label": "Fri 09/25", "v": 9816.0}, {"date": "2026-09-26", "label": "Sat 09/26", "v": 2103.0}, {"date": "2026-09-27", "label": "Sun 09/27", "v": 858.0}], "rhr": [{"date": "2026-09-19", "label": "Sat 09/19", "v": null}, {"date": "2026-09-20", "label": "Sun 09/20", "v": 68.0}, {"date": "2026-09-21", "label": "Mon 09/21", "v": 67.0}, {"date": "2026-09-22", "label": "Tue 09/22", "v": 72.0}, {"date": "2026-09-23", "label": "Wed 09/23", "v": 69.0}, {"date": "2026-09-24", "label": "Thu 09/24", "v": 73.0}, {"date": "2026-09-25", "label": "Fri 09/25", "v": 73.0}, {"date": "2026-09-26", "label": "Sat 09/26", "v": 70.0}, {"date": "2026-09-27", "label": "Sun 09/27", "v": 71.0}], "hrv": [{"date": "2026-09-19", "label": "Sat 09/19", "v": 28.25265730951059}, {"date": "2026-09-20", "label": "Sun 09/20", "v": 29.37556297391165}, {"date": "2026-09-21", "label": "Mon 09/21", "v": 23.08123304718312}, {"date": "2026-09-22", "label": "Tue 09/22", "v": 37.37741343944461}, {"date": "2026-09-23", "label": "Wed 09/23", "v": 35.95283571952669}, {"date": "2026-09-24", "label": "Thu 09/24", "v": 20.242242952238794}, {"date": "2026-09-25", "label": "Fri 09/25", "v": 30.2166098803005}, {"date": "2026-09-26", "label": "Sat 09/26", "v": 30.6961944284654}, {"date": "2026-09-27", "label": "Sun 09/27", "v": 29.808924281559843}], "hr_avg": [{"date": "2026-09-19", "label": "Sat 09/19", "v": 86.13266500002199}, {"date": "2026-09-20", "label": "Sun 09/20", "v": 79.95068935220097}, {"date": "2026-09-21", "label": "Mon 09/21", "v": 78.3922975622647}, {"date": "2026-09-22", "label": "Tue 09/22", "v": 77.3318583769943}, {"date": "2026-09-23", "label": "Wed 09/23", "v": 82.3723097195589}, {"date": "2026-09-24", "label": "Thu 09/24", "v": 82.47818711828523}, {"date": "2026-09-25", "label": "Fri 09/25", "v": 82.49514332474078}, {"date": "2026-09-26", "label": "Sat 09/26", "v": 78.16270421751005}, {"date": "2026-09-27", "label": "Sun 09/27", "v": 74.6445975394371}], "hr_max": [{"date": "2026-09-19", "label": "Sat 09/19", "v": 115.0}, {"date": "2026-09-20", "label": "Sun 09/20", "v": 110.0}, {"date": "2026-09-21", "label": "Mon 09/21", "v": 114.0}, {"date": "2026-09-22", "label": "Tue 09/22", "v": 93.0}, {"date": "2026-09-23", "label": "Wed 09/23", "v": 121.0}, {"date": "2026-09-24", "label": "Thu 09/24", "v": 116.0}, {"date": "2026-09-25", "label": "Fri 09/25", "v": 126.0}, {"date": "2026-09-26", "label": "Sat 09/26", "v": 105.0}, {"date": "2026-09-27", "label": "Sun 09/27", "v": 92.0}], "active_kcal": [{"date": "2026-09-19", "label": "Sat 09/19", "v": 475.65599999999927}, {"date": "2026-09-20", "label": "Sun 09/20", "v": 743.0949644499805}, {"date": "2026-09-21", "label": "Mon 09/21", "v": 432.78599999999983}, {"date": "2026-09-22", "label": "Tue 09/22", "v": 244.01}, {"date": "2026-09-23", "label": "Wed 09/23", "v": 535.7500000000001}, {"date": "2026-09-24", "label": "Thu 09/24", "v": 519.6299999999991}, {"date": "2026-09-25", "label": "Fri 09/25", "v": 547.9469999999997}, {"date": "2026-09-26", "label": "Sat 09/26", "v": 291.2426247768602}, {"date": "2026-09-27", "label": "Sun 09/27", "v": 114.65710371838088}], "exercise_min": [{"date": "2026-09-19", "label": "Sat 09/19", "v": 81.0}, {"date": "2026-09-20", "label": "Sun 09/20", "v": 84.0}, {"date": "2026-09-21", "label": "Mon 09/21", "v": 19.0}, {"date": "2026-09-22", "label": "Tue 09/22", "v": 13.0}, {"date": "2026-09-23", "label": "Wed 09/23", "v": 81.0}, {"date": "2026-09-24", "label": "Thu 09/24", "v": 78.0}, {"date": "2026-09-25", "label": "Fri 09/25", "v": 82.0}, {"date": "2026-09-26", "label": "Sat 09/26", "v": 8.0}, {"date": "2026-09-27", "label": "Sun 09/27", "v": 6.0}], "miles": [{"date": "2026-09-19", "label": "Sat 09/19", "v": 4.03}, {"date": "2026-09-20", "label": "Sun 09/20", "v": 5.05}, {"date": "2026-09-21", "label": "Mon 09/21", "v": 1.96}, {"date": "2026-09-22", "label": "Tue 09/22", "v": 1.18}, {"date": "2026-09-23", "label": "Wed 09/23", "v": 4.38}, {"date": "2026-09-24", "label": "Thu 09/24", "v": 4.17}, {"date": "2026-09-25", "label": "Fri 09/25", "v": 4.33}, {"date": "2026-09-26", "label": "Sat 09/26", "v": 0.84}, {"date": "2026-09-27", "label": "Sun 09/27", "v": 0.34}], "stand_hrs": [{"date": "2026-09-19", "label": "Sat 09/19", "v": 95.0}, {"date": "2026-09-20", "label": "Sun 09/20", "v": 200.0}, {"date": "2026-09-21", "label": "Mon 09/21", "v": 90.0}, {"date": "2026-09-22", "label": "Tue 09/22", "v": 54.0}, {"date": "2026-09-23", "label": "Wed 09/23", "v": 116.0}, {"date": "2026-09-24", "label": "Thu 09/24", "v": 108.0}, {"date": "2026-09-25", "label": "Fri 09/25", "v": 108.0}, {"date": "2026-09-26", "label": "Sat 09/26", "v": 51.0}, {"date": "2026-09-27", "label": "Sun 09/27", "v": 21.0}], "flights": [{"date": "2026-09-19", "label": "Sat 09/19", "v": 4.0}, {"date": "2026-09-20", "label": "Sun 09/20", "v": 13.0}, {"date": "2026-09-21", "label": "Mon 09/21", "v": 14.0}, {"date": "2026-09-22", "label": "Tue 09/22", "v": 5.0}, {"date": "2026-09-23", "label": "Wed 09/23", "v": 9.0}, {"date": "2026-09-24", "label": "Thu 09/24", "v": 6.0}, {"date": "2026-09-25", "label": "Fri 09/25", "v": 12.0}, {"date": "2026-09-26", "label": "Sat 09/26", "v": 9.0}, {"date": "2026-09-27", "label": "Sun 09/27", "v": 7.0}], "workouts": [{"date": "2026-09-19", "label": "Sat 09/19", "type": "Walking", "mins": 77, "miles": 3.69, "kcal": 372, "hr": 107, "steps": 7676}, {"date": "2026-09-20", "label": "Sun 09/20", "type": "Walking", "mins": 76, "miles": 3.69, "kcal": 373, "hr": 104, "steps": 7305}, {"date": "2026-09-23", "label": "Wed 09/23", "type": "Walking", "mins": 70, "miles": 3.21, "kcal": 328, "hr": 106, "steps": 6710}, {"date": "2026-09-24", "label": "Thu 09/24", "type": "Walking", "mins": 72, "miles": 3.25, "kcal": 340, "hr": 104, "steps": 6378}, {"date": "2026-09-25", "label": "Fri 09/25", "type": "Walking", "mins": 66, "miles": 3.19, "kcal": 324, "hr": 104, "steps": 6130}, {"date": "2026-09-26", "label": "Sat 09/26", "type": "Walking", "mins": 33, "miles": 0.03, "kcal": 35, "hr": 81, "steps": 73}]};
+Chart.defaults.font.family = "Inter, system-ui, sans-serif";
+Chart.defaults.color = "#8fa0b8";
+const gridC = "rgba(142,160,184,.12)";
+const base = {plugins:{legend:{labels:{boxWidth:10,boxHeight:10,usePointStyle:true,padding:16}}},
+  scales:{x:{grid:{color:gridC},ticks:{maxRotation:45}},y:{grid:{color:gridC},beginAtZero:true}}};
+const L = D.sleep.map(s=>s.label);
+const acc="#5eead4", acc2="#7dd3fc", vio="#c4b5fd", amber="#fcd34d", rose="#fda4af", green="#6ee7b7";
+
+new Chart(cSleep,{type:"bar",data:{labels:L,datasets:[
+  {label:"Hours asleep",data:D.sleep.map(s=>s.total_h),backgroundColor:s=>s.raw<6?"#f59e0b99":"#5eead488",borderColor:s=>s.raw<6?"#f59e0b":"#5eead4",borderWidth:1.5,borderRadius:7}]},
+  options:{...base,scales:{...base.scales,y:{...base.scales.y,max:9,title:{display:true,text:"hours"}}}}});
+
+new Chart(cStages,{type:"bar",data:{labels:L,datasets:[
+  {label:"Deep",data:D.sleep.map(s=>s.deep_h),backgroundColor:"#7dd3fc",stack:"s",borderRadius:4},
+  {label:"REM",data:D.sleep.map(s=>s.rem_h),backgroundColor:"#c4b5fd",stack:"s"},
+  {label:"Core",data:D.sleep.map(s=>s.core_h),backgroundColor:"#1e3a5f",stack:"s"}]},
+  options:{...base,scales:{...base.scales,y:{...base.scales.y,stacked:true,title:{display:true,text:"hours"}}}}});
+
+function nightH(m,isBed){const base=18*60;let v=m>=base?m-base:m+1440-base;return +(v/60).toFixed(2)}
+new Chart(cTiming,{type:"line",data:{labels:L,datasets:[
+  {label:"Bedtime",data:D.sleep.map(s=>nightH(s.bed_min,true)),borderColor:vio,backgroundColor:vio,tension:.35,pointRadius:4},
+  {label:"Wake",data:D.sleep.map(s=>nightH(s.wake_min,false)),borderColor:amber,backgroundColor:amber,tension:.35,pointRadius:4}]},
+  options:{...base,scales:{x:base.scales.x,y:{grid:{color:gridC},min:0,max:12,
+    ticks:{callback:v=>{const hh=(18+v)%24;const h=Math.floor(hh);const m2=Math.round((hh-h)*60);return (h<10?"0":"")+h+":"+(m2<10?"0":"")+m2}},title:{display:true,text:"time (from 6pm)"}}}}});
+
+new Chart(cQual,{type:"line",data:{labels:L,datasets:[
+  {label:"Quality /100",data:D.sleep.map(s=>s.quality),borderColor:acc,backgroundColor:"rgba(94,234,212,.12)",fill:true,tension:.35,pointRadius:4},
+  {label:"Efficiency %",data:D.sleep.map(s=>s.eff),borderColor:acc2,borderDash:[6,5],tension:.35,pointRadius:3}]},
+  options:{...base,scales:{...base.scales,y:{...base.scales.y,max:100}}}});
+
+const dl = D.rhr.map(r=>r.label);
+new Chart(cRhr,{type:"line",data:{labels:dl,datasets:[
+  {label:"Resting HR (bpm)",data:D.rhr.map(r=>r.v),borderColor:rose,backgroundColor:"rgba(253,164,175,.1)",fill:true,tension:.35,pointRadius:4}]},
+  options:{...base,scales:{x:base.scales.x,y:{grid:{color:gridC},title:{display:true,text:"bpm"}}}}});
+
+new Chart(cHrv,{type:"line",data:{labels:dl,datasets:[
+  {label:"HRV (ms)",data:D.hrv.map(r=>r.v),borderColor:green,backgroundColor:"rgba(110,231,183,.1)",fill:true,tension:.35,pointRadius:4}]},
+  options:{...base,scales:{x:base.scales.x,y:{grid:{color:gridC},title:{display:true,text:"ms"}}}}});
+
+new Chart(cHrRange,{type:"bar",data:{labels:dl,datasets:[
+  {label:"Resting → max (bpm)",data:D.rhr.map((r,i)=>{const lo=r&&r.v,hi=D.hr_max[i]&&D.hr_max[i].v;return (lo&&hi)?[Math.round(lo),Math.round(hi)]:null}),
+   backgroundColor:"#fda4af66",borderColor:"#fda4af",borderWidth:1.5,borderRadius:6,borderSkipped:false},
+  {label:"Daily avg",data:D.hr_avg.map(r=>r.v?Math.round(r.v):null),type:"line",borderColor:"#eef3fb",pointRadius:0,borderWidth:1.5,borderDash:[4,4]}]},
+  options:{...base,scales:{x:base.scales.x,y:{grid:{color:gridC},title:{display:true,text:"bpm"}}}}});
+
+new Chart(cSteps,{type:"bar",data:{labels:dl,datasets:[
+  {label:"Steps",data:D.steps.map(r=>r.v),backgroundColor:"#7dd3fc88",borderColor:"#7dd3fc",borderWidth:1.5,borderRadius:7}]},
+  options:{...base,scales:{...base.scales,y:{...base.scales.y,title:{display:true,text:"steps"}}}}});
+
+new Chart(cKcal,{type:"bar",data:{labels:dl,datasets:[
+  {label:"Active kcal",data:D.active_kcal.map(r=>Math.round(r.v||0)),backgroundColor:"#fcd34d88",borderColor:"#fcd34d",borderWidth:1.5,borderRadius:7}]},
+  options:{...base,scales:{...base.scales,y:{...base.scales.y,title:{display:true,text:"kcal"}}}}});
+
+new Chart(cEx,{type:"bar",data:{labels:dl,datasets:[
+  {label:"Exercise min",data:D.exercise_min.map(r=>Math.round(r.v||0)),backgroundColor:"#c4b5fd88",borderColor:"#c4b5fd",borderWidth:1.5,borderRadius:7}]},
+  options:{...base,scales:{...base.scales,y:{...base.scales.y,title:{display:true,text:"minutes"}}}}});
+
+new Chart(cMiles,{type:"line",data:{labels:dl,datasets:[
+  {label:"Miles",data:D.miles.map(r=>r.v),borderColor:acc2,backgroundColor:"rgba(125,211,252,.12)",fill:true,tension:.35,pointRadius:4}]},
+  options:{...base,scales:{x:base.scales.x,y:{grid:{color:gridC},beginAtZero:true,title:{display:true,text:"miles"}}}}});
+</script>
+</body>
+</html>
