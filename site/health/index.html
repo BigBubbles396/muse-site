@@ -112,8 +112,9 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);color:v
     <div class="card chart-card"><h3>Resting heart rate &mdash; monthly average</h3><canvas id="cLTRhr"></canvas></div>
     <div class="card chart-card"><h3>HRV &mdash; monthly average</h3><canvas id="cLTHrv"></canvas></div>
   </div>
-  <div class="grid" style="margin-top:16px">
+  <div class="grid two" style="margin-top:16px">
     <div class="card chart-card"><h3>Exercise minutes &mdash; monthly average</h3><canvas id="cLTEx"></canvas></div>
+    <div class="card chart-card"><h3>VO&#8322; max &mdash; monthly average</h3><canvas id="cLTVo2"></canvas></div>
   </div>
   <div class="insight"><p><b>13-month trend:</b> resting heart rate has drifted <b>down</b> (from ~77 to ~71 bpm) while HRV moved <b>up</b> — the combination points to <b>improving recovery capacity</b>. Average sleep over the full window is <b>6.2h</b> a night, with steps averaging <b>15,594</b>/day.</p></div>
 </section>
@@ -193,7 +194,7 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);color:v
   <p class="note">Apple Health export through Sep 21, 2026 plus Apple Watch sync through Sep 27. Trends are computed from monthly averages to smooth out daily noise. This is a trends dashboard, not medical advice.</p>
 </section>
 </main>
-<footer>Generated Oct 11, 2026 06:09 PM &middot; Longevity dashboard</footer>
+<footer>Generated Oct 12, 2026 05:25 AM &middot; Longevity dashboard</footer>
 <script>
 const gridC="rgba(148,163,184,.14)", txtC="#cbd5e1";
 const acc="#22d3ee", acc2="#7dd3fc", vio="#a78bfa", rose="#fb7185", amber="#fbbf24", green="#34d399";
@@ -202,7 +203,7 @@ const base={responsive:true,maintainAspectRatio:false,
   scales:{x:{grid:{color:gridC},ticks:{color:txtC,font:{size:10},maxTicksLimit:8,maxRotation:45}},
           y:{grid:{color:gridC},ticks:{color:txtC,font:{size:10}}}}};
 document.querySelectorAll(".chart-card").forEach(c=>{c.style.height="300px"});
-const MO = [{"label": "Jul 25", "sleep_h": null, "steps": 18823, "resting_hr": null, "hrv": 27.6, "exercise_min": 59.0}, {"label": "Aug 25", "sleep_h": 6.95, "steps": 19764, "resting_hr": 74.12, "hrv": 23.51, "exercise_min": 64.29}, {"label": "Sep 25", "sleep_h": 6.39, "steps": 15720, "resting_hr": 77.05, "hrv": 21.92, "exercise_min": 54.73}, {"label": "Oct 25", "sleep_h": 6.53, "steps": 15982, "resting_hr": 80.68, "hrv": 17.85, "exercise_min": 58.0}, {"label": "Nov 25", "sleep_h": 6.71, "steps": 17922, "resting_hr": 80.7, "hrv": 16.78, "exercise_min": 48.23}, {"label": "Dec 25", "sleep_h": 6.31, "steps": 15209, "resting_hr": 79.61, "hrv": 20.4, "exercise_min": 47.42}, {"label": "Jan 26", "sleep_h": 6.1, "steps": 16521, "resting_hr": 80.58, "hrv": 18.83, "exercise_min": 56.06}, {"label": "Feb 26", "sleep_h": 6.29, "steps": 14872, "resting_hr": 79.33, "hrv": 20.16, "exercise_min": 50.79}, {"label": "Mar 26", "sleep_h": 6.44, "steps": 12367, "resting_hr": 79.52, "hrv": 20.53, "exercise_min": 49.55}, {"label": "Apr 26", "sleep_h": 6.54, "steps": 17242, "resting_hr": 79.1, "hrv": 18.64, "exercise_min": 66.03}, {"label": "May 26", "sleep_h": 6.01, "steps": 12416, "resting_hr": 76.8, "hrv": 18.22, "exercise_min": 36.74}, {"label": "Jun 26", "sleep_h": 5.85, "steps": 19678, "resting_hr": 71.57, "hrv": 23.34, "exercise_min": 44.33}, {"label": "Jul 26", "sleep_h": 5.86, "steps": 16913, "resting_hr": 72.55, "hrv": 23.37, "exercise_min": 60.61}, {"label": "Aug 26", "sleep_h": 5.65, "steps": 15401, "resting_hr": 71.26, "hrv": 25.89, "exercise_min": 51.45}, {"label": "Sep 26", "sleep_h": 5.53, "steps": 11664, "resting_hr": 70.37, "hrv": 26.88, "exercise_min": 46.33}, {"label": "Oct 26", "sleep_h": 5.01, "steps": 6024, "resting_hr": 69.18, "hrv": 29.52, "exercise_min": 40.0}];
+const MO = [{"label": "Jul 25", "sleep_h": null, "steps": 18823, "resting_hr": null, "hrv": 27.6, "vo2max": 28.6, "exercise_min": 59.0}, {"label": "Aug 25", "sleep_h": 6.95, "steps": 19764, "resting_hr": 74.12, "hrv": 23.51, "vo2max": 25.3, "exercise_min": 64.29}, {"label": "Sep 25", "sleep_h": 6.39, "steps": 15720, "resting_hr": 77.05, "hrv": 21.92, "vo2max": 25.7, "exercise_min": 54.73}, {"label": "Oct 25", "sleep_h": 6.53, "steps": 15982, "resting_hr": 80.68, "hrv": 17.85, "vo2max": 27.8, "exercise_min": 58.0}, {"label": "Nov 25", "sleep_h": 6.71, "steps": 17922, "resting_hr": 80.7, "hrv": 16.78, "vo2max": 26.1, "exercise_min": 48.23}, {"label": "Dec 25", "sleep_h": 6.31, "steps": 15209, "resting_hr": 79.61, "hrv": 20.4, "vo2max": 24.3, "exercise_min": 47.42}, {"label": "Jan 26", "sleep_h": 6.1, "steps": 16521, "resting_hr": 80.58, "hrv": 18.83, "vo2max": 24.9, "exercise_min": 56.06}, {"label": "Feb 26", "sleep_h": 6.29, "steps": 14872, "resting_hr": 79.33, "hrv": 20.16, "vo2max": 24.8, "exercise_min": 50.79}, {"label": "Mar 26", "sleep_h": 6.44, "steps": 12367, "resting_hr": 79.52, "hrv": 20.53, "vo2max": 24.1, "exercise_min": 49.55}, {"label": "Apr 26", "sleep_h": 6.54, "steps": 17242, "resting_hr": 79.1, "hrv": 18.64, "vo2max": 25.0, "exercise_min": 66.03}, {"label": "May 26", "sleep_h": 6.01, "steps": 12416, "resting_hr": 76.8, "hrv": 18.22, "vo2max": 25.9, "exercise_min": 36.74}, {"label": "Jun 26", "sleep_h": 5.85, "steps": 19678, "resting_hr": 71.57, "hrv": 23.34, "vo2max": 26.3, "exercise_min": 44.33}, {"label": "Jul 26", "sleep_h": 5.86, "steps": 16913, "resting_hr": 72.55, "hrv": 23.37, "vo2max": 26.7, "exercise_min": 60.61}, {"label": "Aug 26", "sleep_h": 5.65, "steps": 15401, "resting_hr": 71.26, "hrv": 25.89, "vo2max": 27.5, "exercise_min": 51.45}, {"label": "Sep 26", "sleep_h": 5.53, "steps": 11664, "resting_hr": 70.37, "hrv": 26.88, "vo2max": 27.8, "exercise_min": 46.33}, {"label": "Oct 26", "sleep_h": 5.01, "steps": 6024, "resting_hr": 69.18, "hrv": 29.52, "vo2max": 28.7, "exercise_min": 40.0}];
 const ml = MO.map(m=>m.label);
 function moLine(id,label,key,color,fill){
   new Chart(document.getElementById(id),{type:"line",
@@ -215,6 +216,7 @@ moLine("cLTSteps","Steps","steps",vio,true);
 moLine("cLTRhr","Resting HR (bpm)","resting_hr",rose,true);
 moLine("cLTHrv","HRV (ms)","hrv",green,true);
 moLine("cLTEx","Exercise min","exercise_min",amber,true);
+moLine("cLTVo2","VO2 max (ml/kg/min)","vo2max",acc,true);
 new Chart(document.getElementById("cMoStages"),{type:"bar",
   data:{labels:["Mar 26", "Apr 26", "May 26", "Jun 26", "Jul 26", "Aug 26", "Sep 26", "Oct 26"],datasets:[
     {label:"Core",data:[3.83, 3.72, 3.4, 3.55, 3.12, 3.18, 3.03, 2.66],backgroundColor:"#0e7490"},
