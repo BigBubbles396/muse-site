@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TVs, PCs, Macs, Cameras &amp; Weights for Sale on Oahu — Facebook Marketplace finds | donny808</title>
+<title>TVs, PCs, Macs, Cameras &amp; Weights for Sale on Oahu — Facebook Marketplace &amp; Craigslist finds | donny808</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #191919; background: #fff; }
@@ -40,6 +40,9 @@
   .item .badge { display: inline-block; font-size: 11px; font-weight: 700; color: #b12704; letter-spacing: .4px; margin-bottom: 4px; }
   .item .cat { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; background: #555; letter-spacing: .4px; padding: 2px 8px; border-radius: 9px; margin-bottom: 5px; }
   .item .cat.tv { background: #0064d2; } .item .cat.pc { background: #5a3ec8; } .item .cat.mac { background: #191919; } .item .cat.cam { background: #107a3d; } .item .cat.gym { background: #c75100; }
+  .item .src { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .4px; padding: 2px 8px; border-radius: 9px; margin-bottom: 5px; margin-left: 4px; }
+  .item .src.fb { background: #e7f0fe; color: #1877f2; }
+  .item .src.cl { background: #f0e8f7; color: #5f259f; }
   .livebar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13px; color: #555; padding: 10px 2px 2px; }
   .livebar a { border: 1.5px solid #0064d2; color: #0064d2; font-weight: 600; padding: 5px 14px; border-radius: 16px; font-size: 12.5px; }
   .livebar a:hover { background: #f0f6fd; text-decoration: none; }
@@ -64,7 +67,7 @@
 <div class="topbar"><span>Aloha, <b>Jeffrey</b></span><span>Daily Deals</span><span>Local Pickup</span><span>Oahu, Hawaii</span><span style="margin-left:auto">Snapshot: Mon Oct 26, 2026</span></div>
 
 <header class="main">
-  <div class="logo"><span class="r">d</span><span class="b">o</span><span class="y">n</span><span class="g">n</span><span class="r">y</span><span class="b">8</span><span class="y">0</span><span class="g">8</span><small>TVs, PCs, Macs, cameras &amp; weights hunted down on Facebook Marketplace</small></div>
+  <div class="logo"><span class="r">d</span><span class="b">o</span><span class="y">n</span><span class="g">n</span><span class="r">y</span><span class="b">8</span><span class="y">0</span><span class="g">8</span><small>TVs, PCs, Macs, cameras &amp; weights hunted down on Facebook Marketplace &amp; Craigslist</small></div>
   <form class="searchbar" onsubmit="return false;">
     <input id="q" type="text" placeholder="Search these listings (brand, model, town)…" oninput="applyFilters()">
     <button type="button" onclick="applyFilters()">Search</button>
@@ -76,12 +79,16 @@
 <div class="wrap">
   <aside>
     <h3>Category</h3>
-    <label><input type="radio" name="cat" value="all" checked onchange="applyFilters()"> All listings <span class="count">(60)</span></label>
-    <label><input type="radio" name="cat" value="tv" onchange="applyFilters()"> TVs <span class="count">(12)</span></label>
+    <label><input type="radio" name="cat" value="all" checked onchange="applyFilters()"> All listings <span class="count">(77)</span></label>
+    <label><input type="radio" name="cat" value="tv" onchange="applyFilters()"> TVs <span class="count">(21)</span></label>
     <label><input type="radio" name="cat" value="pc" onchange="applyFilters()"> PCs <span class="count">(12)</span></label>
-    <label><input type="radio" name="cat" value="mac" onchange="applyFilters()"> Apple computers <span class="count">(12)</span></label>
+    <label><input type="radio" name="cat" value="mac" onchange="applyFilters()"> Apple computers <span class="count">(14)</span></label>
     <label><input type="radio" name="cat" value="cam" onchange="applyFilters()"> Surveillance cameras <span class="count">(12)</span></label>
-    <label><input type="radio" name="cat" value="gym" onchange="applyFilters()"> Weight lifting <span class="count">(12)</span></label>
+    <label><input type="radio" name="cat" value="gym" onchange="applyFilters()"> Weight lifting <span class="count">(18)</span></label>
+    <h3>Source</h3>
+    <label><input type="radio" name="srcf" value="all" checked onchange="applyFilters()"> All sources <span class="count">(77)</span></label>
+    <label><input type="radio" name="srcf" value="fb" onchange="applyFilters()"> Facebook Marketplace <span class="count">(60)</span></label>
+    <label><input type="radio" name="srcf" value="cl" onchange="applyFilters()"> Craigslist <span class="count">(17)</span></label>
     <h3>Location</h3>
     <div id="locFilters"></div>
     <h3>Price</h3>
@@ -97,7 +104,7 @@
 
   <main>
     <div class="results-head">
-      <h1><span id="n">60</span> Results <span>for TVs, PCs, Macs, cameras &amp; weights — Honolulu, HI · within 40 mi (all of Oahu)</span></h1>
+      <h1><span id="n">77</span> Results <span>for TVs, PCs, Macs, cameras &amp; weights — Facebook Marketplace + Craigslist · Oahu, Hawaii</span></h1>
       <div class="sortbox">Sort:
         <select id="sort" onchange="applyFilters()">
           <option value="match">Best Match</option>
@@ -122,14 +129,22 @@
       <a href="https://www.facebook.com/marketplace/honolulu/search/?query=security%20camera" target="_blank" rel="noopener">Cameras</a>
       <a href="https://www.facebook.com/marketplace/honolulu/search/?query=weight%20bench" target="_blank" rel="noopener">Weights</a>
     </div>
+    <div class="livebar">
+      <span><b>On Craigslist right now:</b></span>
+      <a href="https://honolulu.craigslist.org/search/sss?query=tv" target="_blank" rel="noopener">TVs</a>
+      <a href="https://honolulu.craigslist.org/search/sss?query=desktop+computer" target="_blank" rel="noopener">PCs</a>
+      <a href="https://honolulu.craigslist.org/search/sss?query=macbook" target="_blank" rel="noopener">Macs</a>
+      <a href="https://honolulu.craigslist.org/search/sss?query=security+camera" target="_blank" rel="noopener">Cameras</a>
+      <a href="https://honolulu.craigslist.org/search/sss?query=weight+bench" target="_blank" rel="noopener">Weights</a>
+    </div>
     <div id="list"></div>
     <div class="empty" id="empty">Nothing matches that filter. <a href="#" onclick="resetFilters();return false;">Clear filters</a></div>
   </main>
 </div>
 
 <footer>
-  Listings pulled from <b>Facebook Marketplace</b> (searches: “TV”, “desktop computer”, “gaming PC”, “MacBook”, “security camera”, “weight bench” — Honolulu, HI · within 40 mi) on Monday, October 26, 2026 at 5:32 PM HST. Prices and availability change fast — a listing here may already be sold on Facebook; use the live links above for the very latest. Photos belong to the sellers. This page is a personal snapshot, not a store: tap “View on Facebook Marketplace” to contact the seller. Always meet in a public place and test the item before paying.<br><br>
-  donny808 · Not affiliated with eBay or Meta.
+  Listings pulled from <b>Facebook Marketplace</b> (searches: “TV”, “desktop computer”, “gaming PC”, “MacBook”, “security camera”, “weight bench” — Honolulu, HI · within 40 mi) on Monday, October 26, 2026 at 5:32 PM HST. <b>Craigslist</b> posts (Honolulu, Oahu only) were added the same evening at 9:47 PM HST, limited to posts originally posted in the last 7 days (Oct 19–26); Craigslist has very few fresh posts in some categories — there were no Oahu PCs or surveillance cameras posted in that window. Prices and availability change fast — a listing here may already be sold; use the live links above for the very latest. Photos belong to the sellers. This page is a personal snapshot, not a store: tap the view button on a card to contact the seller. Always meet in a public place and test the item before paying.<br><br>
+  donny808 · Not affiliated with eBay, Meta, or Craigslist.
 </footer>
 
 <script>
@@ -147,6 +162,16 @@ const LISTINGS = [
  {t:"Samsung 55″ Class TU7000 Crystal UHD 4K Smart TV", p:200, was:null, loc:"Honolulu, HI", cat:"tv", note:"Smart TV · 4K", img:"img/tv10.jpg", url:"https://www.facebook.com/marketplace/item/1367369248911623/"},
  {t:"TV 28 In", p:50, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv11.jpg", url:"https://www.facebook.com/marketplace/item/2075700426351061/"},
  {t:"40″ Hisense TV", p:90, was:100, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv12.jpg", url:"https://www.facebook.com/marketplace/item/1411430297817873/"},
+ // Craigslist TVs (posted Oct 19–26)
+ {t:"Samsung UN60JU650DF TV", p:30, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/cltv1.jpg", src:"cl", date:"Oct 26", url:"https://www.craigslist.org/view/d/honolulu-samsung-un60ju650df-tv/gJN52N2d2MKLYXwJEej4S4"},
+ {t:"Samsung TV — for parts", p:10, was:null, loc:"Oahu, HI", cat:"tv", note:"For parts", img:"img/cltv2.jpg", src:"cl", date:"Oct 25", url:"https://www.craigslist.org/view/d/honolulu-samsung-tv-for-parts/egKZev3njbd5JSjvuo2SfU"},
+ {t:"55″ LG TV", p:55, was:null, loc:"Oahu, HI", cat:"tv", note:"", img:"img/cltv3.jpg", src:"cl", date:"Oct 25", url:"https://www.craigslist.org/view/d/honolulu-55-lg-tv/rcztHCV7vDKfHDMbyKTTAR"},
+ {t:"Newline 65″ 4K Smart TV / Display — brand new in box", p:795, was:null, loc:"Waikiki, HI", cat:"tv", note:"New in box", img:"img/cltv4.jpg", src:"cl", date:"Oct 24", url:"https://www.craigslist.org/view/d/honolulu-newline-65-4k-smart-tv-display/wYRheaKRLySfFYyvsvBusR"},
+ {t:"Like new 55″ TCL smart TV", p:100, was:null, loc:"Oahu, HI", cat:"tv", note:"", img:"img/cltv5.jpg", src:"cl", date:"Oct 24", url:"https://www.craigslist.org/view/d/honolulu-like-new-55-tcl-smart-tv/qP8bK4EptKTiHE8nQi5C5y"},
+ {t:"2 flat screen TVs — 52″ and 42″ ($200 each)", p:400, was:null, loc:"Nanakuli, HI", cat:"tv", note:"Two TVs — $200 each", img:"img/cltv6.jpg", src:"cl", date:"Oct 23", url:"https://www.craigslist.org/view/d/kapolei-flat-screen-tvs-52-inch-and-42/kM6vjgwf3Sxf8SMTqUeWoS"},
+ {t:"2 TVs", p:25, was:null, loc:"Waianae, HI", cat:"tv", note:"", img:"img/cltv7.jpg", src:"cl", date:"Oct 20", url:"https://www.craigslist.org/view/d/waianae-tv/ch2o7T3ntkPy9sQNSX5Xy5"},
+ {t:"Toshiba 50″ TV (brand new, unboxed) + free Emerson 32″ TV", p:300, was:null, loc:"Honolulu, HI", cat:"tv", note:"Includes free 32″ TV", img:"img/cltv8.jpg", src:"cl", date:"Oct 19", url:"https://www.craigslist.org/view/d/honolulu-brandnew-unboxed-toshiba-50-tv/9SswPReA4EXgBbfCsZagUn"},
+ {t:"Sony Bravia TV with stand", p:240, was:null, loc:"Kaimuki, HI", cat:"tv", note:"Includes stand", img:"img/cltv9.jpg", src:"cl", date:"Oct 19", url:"https://www.craigslist.org/view/d/honolulu-sony-bravia-tv-stand/7Cnr6rdoKtgdtN3VuuoB83"},
  // PCs
  {t:"Dell OptiPlex 3010 Desktop PC", p:50, was:null, loc:"Honolulu, HI", cat:"pc", note:"", img:"img/pc1.jpg", url:"https://www.facebook.com/marketplace/item/1127572542932710/"},
  {t:"Dell Inspiron 24 7459 All-in-One", p:200, was:null, loc:"Honolulu, HI", cat:"pc", note:"All-in-one", img:"img/pc2.jpg", url:"https://www.facebook.com/marketplace/item/1080300884474783/"},
@@ -173,6 +198,9 @@ const LISTINGS = [
  {t:"Apple MacBook Pro 15-inch (2017) – Intel i7, 16GB RAM", p:300, was:null, loc:"Wheeler Army Airfield, HI", cat:"mac", note:"", img:"img/mac10.jpg", url:"https://www.facebook.com/marketplace/item/1828958394924403/"},
  {t:"Apple MacBook Pro Retina 13″ – 512GB SSD – Great Condition (late 2013 model)", p:175, was:null, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac11.jpg", url:"https://www.facebook.com/marketplace/item/1027918333449026/"},
  {t:"MacBook M2", p:500, was:750, loc:"Honolulu, HI", cat:"mac", note:"Apple silicon · M2", img:"img/mac12.jpg", url:"https://www.facebook.com/marketplace/item/2308584593225141/"},
+ // Craigslist Apple computers (posted Oct 19–26)
+ {t:"iMac Desktop Computer", p:500, was:null, loc:"Kailua, HI", cat:"mac", note:"", img:"img/clmac1.jpg", src:"cl", date:"Oct 21", url:"https://www.craigslist.org/view/d/kailua-imac-desktop-computer/eVQ1VhJFp9FgG7Qsjh9uro"},
+ {t:"27″ Apple iMac (Late 2013) — 3.2GHz i5, 8GB RAM", p:200, was:null, loc:"Kahala, HI", cat:"mac", note:"", img:"img/clmac2.jpg", src:"cl", date:"Oct 19", url:"https://www.craigslist.org/view/d/honolulu-27-apple-imac-late-ghz-i5-8gb/2CUfH43QPwxXQVBLAZ4bJ8"},
  // Surveillance cameras
  {t:"Night Owl Security Camera System with DVR and 8 Cameras", p:400, was:null, loc:"Wahiawa, HI", cat:"cam", note:"8-camera DVR system", img:"img/cam1.jpg", url:"https://www.facebook.com/marketplace/item/1754806535773053/"},
  {t:"New Blink Wired Floodlight Camera", p:40, was:null, loc:"Kapolei, HI", cat:"cam", note:"New", img:"img/cam2.jpg", url:"https://www.facebook.com/marketplace/item/2653115911784104/"},
@@ -198,7 +226,14 @@ const LISTINGS = [
  {t:"Gym bench", p:60, was:null, loc:"Ewa Beach, HI", cat:"gym", note:"", img:"img/gym9.jpg", url:"https://www.facebook.com/marketplace/item/1667660094776289/"},
  {t:"Golds gym bench rack", p:50, was:null, loc:"Kapolei, HI", cat:"gym", note:"Bench rack", img:"img/gym10.jpg", url:"https://www.facebook.com/marketplace/item/2302309990547580/"},
  {t:"HARISON Adjustable Weight Bench with Leg Extension", p:100, was:null, loc:"Mililani Town, HI", cat:"gym", note:"Leg extension", img:"img/gym11.jpg", url:"https://www.facebook.com/marketplace/item/146902147847142/"},
- {t:"FlyBird Adjustable Workout Bench", p:75, was:100, loc:"Waipahu, HI", cat:"gym", note:"", img:"img/gym12.jpg", url:"https://www.facebook.com/marketplace/item/1021316360342920/"}
+ {t:"FlyBird Adjustable Workout Bench", p:75, was:100, loc:"Waipahu, HI", cat:"gym", note:"", img:"img/gym12.jpg", url:"https://www.facebook.com/marketplace/item/1021316360342920/"},
+ // Craigslist weight lifting (posted Oct 19–26)
+ {t:"Ironmaster dumbbells, self-spotting machine & Super Bench PRO V2", p:9995, was:null, loc:"Salt Lake, HI", cat:"gym", note:"Full pro setup", img:"img/clgym1.jpg", src:"cl", date:"Oct 24", url:"https://www.craigslist.org/view/d/honolulu-ironmasters-dumbbells-self/1kAKH68bJeKgq7DF5n1qdu"},
+ {t:"Heavy duty weight lifting bench", p:49, was:null, loc:"Waianae, HI", cat:"gym", note:"", img:"img/clgym2.jpg", src:"cl", date:"Oct 23", url:"https://www.craigslist.org/view/d/waianae-heavy-duty-weight-lifting-bench/dFw9KbvyDCvbcS4EL7mfPs"},
+ {t:"Olympic weights, bench & rack", p:500, was:null, loc:"Oahu, HI", cat:"gym", note:"", img:"img/clgym3.jpg", src:"cl", date:"Oct 23", url:"https://www.craigslist.org/view/d/honolulu-olympic-weights-bench-rack/33af6edhMzpg5jACDLpVVK"},
+ {t:"200 lbs dumbbells", p:250, was:null, loc:"Oahu, HI", cat:"gym", note:"", img:"img/clgym4.jpg", src:"cl", date:"Oct 23", url:"https://www.craigslist.org/view/d/honolulu-200lbs-dumbbells/gS9kuS46bXYDRsKi5hQeJn"},
+ {t:"Olympic barbell weight plates", p:808, was:null, loc:"Kapolei, HI", cat:"gym", note:"", img:"img/clgym5.jpg", src:"cl", date:"Oct 20", url:"https://www.craigslist.org/view/d/kapolei-olympic-barbell-weight-plates/a2q4pJ2YEdF6czRuFeUCK4"},
+ {t:"Adjustable hyperextension bench / Roman chair", p:60, was:null, loc:"Pali, HI", cat:"gym", note:"", img:"img/clgym6.jpg", src:"cl", date:"Oct 19", url:"https://www.craigslist.org/view/d/honolulu-adjustable-hyperextension/38Muy3Us8RWocSFMocxNCs"}
 ];
 const CATLBL = { tv: "TV", pc: "PC", mac: "APPLE", cam: "CAMERA", gym: "WEIGHTS" };
 
@@ -215,14 +250,14 @@ function render(items) {
    <div class="item">
      <a href="${x.url}" target="_blank" rel="noopener"><img src="${x.img}" alt=""></a>
      <div class="info">
-       <span class="cat ${x.cat}">${CATLBL[x.cat]}</span>
+       <span class="cat ${x.cat}">${CATLBL[x.cat]}</span><span class="src ${x.src === 'cl' ? 'cl' : 'fb'}">${x.src === 'cl' ? 'CRAIGSLIST' : 'FACEBOOK'}</span>
        ${x.was ? '<span class="badge">PRICE REDUCED</span>' : ''}
        <h2><a href="${x.url}" target="_blank" rel="noopener">${x.t}</a></h2>
-       <div class="sub">Used${x.note ? ' · ' + x.note : ''}</div>
+       <div class="sub">${x.src === 'cl' ? 'Posted ' + x.date + (x.note ? ' · ' + x.note : '') : 'Used' + (x.note ? ' · ' + x.note : '')}</div>
        <div class="price">$${x.p.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2})}${x.was ? `<span class="was">Was: $${x.was.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2})}</span>` : ''}</div>
        <div class="pickup">Local pickup</div>
        <div class="loc">Located in ${x.loc}</div>
-       <a class="btn" href="${x.url}" target="_blank" rel="noopener">View on Facebook Marketplace</a>
+       <a class="btn" href="${x.url}" target="_blank" rel="noopener">${x.src === 'cl' ? 'View on Craigslist' : 'View on Facebook Marketplace'}</a>
      </div>
    </div>`).join('');
   document.getElementById('n').textContent = items.length;
@@ -237,11 +272,13 @@ function setCat(c) {
 function applyFilters() {
   const q = document.getElementById('q').value.toLowerCase();
   const cat = document.querySelector('input[name=cat]:checked').value;
+  const srcf = document.querySelector('input[name=srcf]:checked').value;
   const pr = document.querySelector('input[name=price]:checked').value;
   const locs = [...document.querySelectorAll('.locf:checked')].map(e => e.value);
   document.querySelectorAll('.tabs div').forEach(d => d.classList.toggle('on', d.dataset.cat === cat));
   let items = LISTINGS.filter(x => {
     if (cat !== 'all' && x.cat !== cat) return false;
+    if (srcf !== 'all' && (x.src || 'fb') !== srcf) return false;
     if (q && !(x.t + ' ' + x.loc).toLowerCase().includes(q)) return false;
     if (pr !== 'all') { const [a, b] = pr.split('-').map(Number); if (x.p < a || x.p > b) return false; }
     if (locs.length && !locs.includes(x.loc)) return false;
@@ -256,6 +293,7 @@ function applyFilters() {
 function resetFilters() {
   document.getElementById('q').value = '';
   document.querySelector('input[name=cat][value=all]').checked = true;
+  document.querySelector('input[name=srcf][value=all]').checked = true;
   document.querySelector('input[name=price][value=all]').checked = true;
   document.querySelectorAll('.locf').forEach(e => e.checked = false);
   document.getElementById('sort').value = 'match';
