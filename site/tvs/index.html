@@ -104,7 +104,7 @@
 
   <main>
     <div class="results-head">
-      <h1><span id="n">73</span> Results <span>for TVs, PCs, Macs, cameras &amp; weights — Facebook Marketplace + Craigslist · Oahu, Hawaii</span></h1>
+      <h1><span id="n">64</span> Results <span>for TVs, PCs, Macs, cameras &amp; weights — Facebook Marketplace + Craigslist · Oahu, Hawaii</span></h1>
       <div class="sortbox">Sort:
         <select id="sort" onchange="applyFilters()">
           <option value="match">Best Match</option>
@@ -143,93 +143,86 @@
 </div>
 
 <footer>
-  Listings pulled from <b>Facebook Marketplace</b> (searches: “TV”, “gaming PC”, “MacBook”, “security camera”, “weights” — Honolulu, HI · within 40 mi) on Friday, October 30, 2026 at 6:22 PM HST. <b>Craigslist</b> posts (Honolulu, Oahu only) were pulled the same evening, limited to posts originally posted in the last 7 days (Oct 23–30); Craigslist has very few fresh posts in some categories — there were no Oahu PCs or surveillance cameras posted in that window, and just one MacBook and three weight-lifting posts. Prices and availability change fast — a listing here may already be sold; use the live links above for the very latest. Photos belong to the sellers. This page is a personal snapshot, not a store: tap the view button on a card to contact the seller. Always meet in a public place and test the item before paying.<br><br>
+  Listings pulled from <b>Facebook Marketplace</b> (searches: “TV”, “gaming PC”, “MacBook”, “security camera”, “weights” — Honolulu, HI · within 40 mi) on Friday, November 6, 2026 at 4:44 PM HST. <b>Craigslist</b> posts (Honolulu, Oahu only) were pulled the same afternoon, limited to posts originally posted in the last 7 days (Oct 30–Nov 6); fresh Craigslist posts were scarce this week — just six across all five categories (one TV, one PC, two Apple computers, one camera system, one weight-lifting post), and many older posts only looked fresh because they were updated recently. Prices and availability change fast — a listing here may already be sold; use the live links above for the very latest. Photos belong to the sellers. This page is a personal snapshot, not a store: tap the view button on a card to contact the seller. Always meet in a public place and test the item before paying.<br><br>
   donny808 · Not affiliated with eBay, Meta, or Craigslist.
 </footer>
 
 <script>
 const LISTINGS = [
  // TVs — Facebook Marketplace
- {t:"Samsung LED TV 55\"inches", p:100, was:null, loc:"Kapolei, HI", cat:"tv", note:"", img:"img/tv1.jpg", url:"https://www.facebook.com/marketplace/item/1891337498818297/"},
- {t:"Vizio 40” Quantum Series Full HD QLED Smart TV", p:60, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv2.jpg", url:"https://www.facebook.com/marketplace/item/1614092880507961/"},
- {t:"65 inch tv and stand", p:300, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv3.jpg", url:"https://www.facebook.com/marketplace/item/1854049715578356/"},
- {t:"Sony Bravia 4K ultra HD", p:180, was:200, loc:"Kaneohe, HI", cat:"tv", note:"", img:"img/tv4.jpg", url:"https://www.facebook.com/marketplace/item/1162732733181021/"},
- {t:"Vizio TV", p:45, was:60, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv5.jpg", url:"https://www.facebook.com/marketplace/item/1376413267771064/"},
- {t:"43 inch tv", p:45, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv6.jpg", url:"https://www.facebook.com/marketplace/item/2253540845409784/"},
- {t:"Samsung 49” MU8000 4K Smart TV", p:120, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv7.jpg", url:"https://www.facebook.com/marketplace/item/1775354897348744/"},
- {t:"Brand new TV", p:400, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv8.jpg", url:"https://www.facebook.com/marketplace/item/996987823329655/"},
- {t:"Tv", p:30, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv9.jpg", url:"https://www.facebook.com/marketplace/item/1804082770789722/"},
- {t:"Lg tv", p:250, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv10.jpg", url:"https://www.facebook.com/marketplace/item/1410855500907741/"},
- {t:"Samsung 40 inch TV", p:85, was:null, loc:"Pearl City, HI", cat:"tv", note:"", img:"img/tv11.jpg", url:"https://www.facebook.com/marketplace/item/1062898062996877/"},
- {t:"48” Samsung TV", p:300, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv12.jpg", url:"https://www.facebook.com/marketplace/item/1742978806796373/"},
- // Craigslist TVs (posted Oct 23–30)
- {t:"Samsung HDTV Monitor", p:40, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/cltv1.jpg", src:"cl", date:"Oct 29", url:"https://www.craigslist.org/view/d/honolulu-samsung-hdtv-monitor/svV9LjYtRdttZgbFUjnw1t"},
- {t:"LG 65\" Smart TV", p:50, was:null, loc:"Kailua, HI", cat:"tv", note:"", img:"img/cltv2.jpg", src:"cl", date:"Oct 29", url:"https://www.craigslist.org/view/d/kailua-lg-65-smart-tv/mNNi9NgzX7KnEgNBu1DgHJ"},
- {t:"55 inch TCL QM7 TV 4k", p:300, was:null, loc:"Oahu, HI", cat:"tv", note:"", img:"img/cltv3.jpg", src:"cl", date:"Oct 28", url:"https://www.craigslist.org/view/d/honolulu-55-inch-tcl-qm7-tv-4k/w4myxrv92ucxz81tBo28KY"},
- {t:"Samsung UN60JU650DF TV", p:30, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/cltv4.jpg", src:"cl", date:"Oct 26", url:"https://www.craigslist.org/view/d/honolulu-samsung-un60ju650df-tv/gJN52N2d2MKLYXwJEej4S4"},
- {t:"Samsung tv for parts", p:10, was:null, loc:"Oahu, HI", cat:"tv", note:"For parts", img:"img/cltv5.jpg", src:"cl", date:"Oct 25", url:"https://www.craigslist.org/view/d/honolulu-samsung-tv-for-parts/egKZev3njbd5JSjvuo2SfU"},
- {t:"55” LG. TV", p:55, was:null, loc:"Oahu, HI", cat:"tv", note:"", img:"img/cltv6.jpg", src:"cl", date:"Oct 25", url:"https://www.craigslist.org/view/d/honolulu-55-lg-tv/rcztHCV7vDKfHDMbyKTTAR"},
- {t:"Newline 65” 4K Smart TV / Display – Brand New in Box", p:795, was:null, loc:"Waikiki, HI", cat:"tv", note:"", img:"img/cltv7.jpg", src:"cl", date:"Oct 24", url:"https://www.craigslist.org/view/d/honolulu-newline-65-4k-smart-tv-display/wYRheaKRLySfFYyvsvBusR"},
- {t:"Like new 55” TCL smart tv", p:100, was:null, loc:"Oahu, HI", cat:"tv", note:"", img:"img/cltv8.jpg", src:"cl", date:"Oct 24", url:"https://www.craigslist.org/view/d/honolulu-like-new-55-tcl-smart-tv/qP8bK4EptKTiHE8nQi5C5y"},
- {t:"2 flat screen tv's. 52 inch and 42 inch $200.OO each", p:400, was:null, loc:"Nanakuli, HI", cat:"tv", note:"Two TVs — $200 each", img:"img/cltv9.jpg", src:"cl", date:"Oct 23", url:"https://www.craigslist.org/view/d/kapolei-flat-screen-tvs-52-inch-and-42/kM6vjgwf3Sxf8SMTqUeWoS"},
+ {t:"55” LG TV", p:90, was:null, loc:"Kapolei, HI", cat:"tv", note:"", img:"img/tv1.jpg", url:"https://www.facebook.com/marketplace/item/1820334392631347/"},
+ {t:"Samsung 70-Inch Class QLED Q60B Series (2022) - Semi-frameless top/bottom", p:700, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv2.jpg", url:"https://www.facebook.com/marketplace/item/4635301693418854/"},
+ {t:"Samsung 43” TV with Soundbar and Subwoofer", p:250, was:null, loc:"Wahiawa, HI", cat:"tv", note:"", img:"img/tv3.jpg", url:"https://www.facebook.com/marketplace/item/2064049477581734/"},
+ {t:"Hisense LED TV with Firestick Included", p:50, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv4.jpg", url:"https://www.facebook.com/marketplace/item/1990460594983305/"},
+ {t:"Samsung TV", p:50, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv5.jpg", url:"https://www.facebook.com/marketplace/item/1137852352056115/"},
+ {t:"IGSIGNIA FIRESTICK TV", p:400, was:null, loc:"Kaneohe, HI", cat:"tv", note:"", img:"img/tv6.jpg", url:"https://www.facebook.com/marketplace/item/1742525137878063/"},
+ {t:"Vizio 65\" 4K Smart TV (READ DESCRIPTION)", p:50, was:null, loc:"Mililani Town, HI", cat:"tv", note:"", img:"img/tv7.jpg", url:"https://www.facebook.com/marketplace/item/2115777959081344/"},
+ {t:"onn. 32' in Roku TV with Remote", p:80, was:null, loc:"Wahiawa, HI", cat:"tv", note:"", img:"img/tv8.jpg", url:"https://www.facebook.com/marketplace/item/945233468453188/"},
+ {t:"65 Inch Sony Bravia LED Smart TV", p:300, was:null, loc:"Ewa Beach, HI", cat:"tv", note:"", img:"img/tv9.jpg", url:"https://www.facebook.com/marketplace/item/2202704356976602/"},
+ {t:"55 inch samsung smart tv. Has small faint white spots in screen (photo). Pick up only.", p:50, was:null, loc:"Waipahu, HI", cat:"tv", note:"", img:"img/tv10.jpg", url:"https://www.facebook.com/marketplace/item/2081302692498634/"},
+ {t:"20 inch samsung tv works great", p:15, was:20, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv11.jpg", url:"https://www.facebook.com/marketplace/item/1118780880882180/"},
+ {t:"TV TCL moving sale", p:250, was:null, loc:"Honolulu, HI", cat:"tv", note:"", img:"img/tv12.jpg", url:"https://www.facebook.com/marketplace/item/1472944728275574/"},
+ // Craigslist TVs (posted Oct 30–Nov 6)
+ {t:"Samsung Smart TV - 43 inch", p:60, was:null, loc:"Hawaii Kai, HI", cat:"tv", note:"", img:"img/cltv1.jpg", src:"cl", date:"Oct 31", url:"https://www.craigslist.org/view/d/honolulu-samsung-smart-tv-43-inch/sbYXULhw2jf1uKRSmGTQQT"},
  // PCs — Facebook Marketplace
- {t:"CyberPowerPC Gaming Desktop", p:1000, was:null, loc:"Aiea, HI", cat:"pc", note:"", img:"img/pc1.jpg", url:"https://www.facebook.com/marketplace/item/2072954603388237/"},
- {t:"Gaming PC - Intel i7-14700KF, RTX 4060 Ti 16GB, 32GB RAM, 2TB SSD Take entire setup", p:1450, was:2000, loc:"Kapolei, HI", cat:"pc", note:"", img:"img/pc2.jpg", url:"https://www.facebook.com/marketplace/item/2166578350927242/"},
- {t:"PC Setup", p:900, was:1500, loc:"Honolulu, HI", cat:"pc", note:"", img:"img/pc3.jpg", url:"https://www.facebook.com/marketplace/item/1647257720156465/"},
- {t:"Gaming PC", p:1350, was:null, loc:"MCBH Kaneohe Bay, HI", cat:"pc", note:"", img:"img/pc4.jpg", url:"https://www.facebook.com/marketplace/item/1095593273192322/"},
- {t:"ASUS ROG Strix G10CE Gaming Desktop - Intel Core i7-11700F, RTX 3060, 16GB RAM", p:800, was:null, loc:"Ewa Beach, HI", cat:"pc", note:"", img:"img/pc5.jpg", url:"https://www.facebook.com/marketplace/item/1767201037659045/"},
- {t:"Gaming PC", p:1500, was:null, loc:"Kapolei, HI", cat:"pc", note:"", img:"img/pc6.jpg", url:"https://www.facebook.com/marketplace/item/1765467061342552/"},
- {t:"Micro ATX PC: Ryzen 7 5700G, GTX 1050Ti, 64 GB RAM, 1 TB SSD", p:599, was:699, loc:"Honolulu, HI", cat:"pc", note:"", img:"img/pc7.jpg", url:"https://www.facebook.com/marketplace/item/2143904936501616/"},
- {t:"iBUYPOWER Gaming PC RTX 4060 i7-14700F 32GB DDR5 + Flight Sim Setup", p:999, was:null, loc:"Honolulu, HI", cat:"pc", note:"", img:"img/pc8.jpg", url:"https://www.facebook.com/marketplace/item/2126469518291001/"},
- {t:"Mid-High Gaming PC", p:2500, was:null, loc:"Waipahu, HI", cat:"pc", note:"", img:"img/pc9.jpg", url:"https://www.facebook.com/marketplace/item/2688718641524066/"},
- {t:"ibuypower pc SETUP", p:1500, was:null, loc:"Waianae, HI", cat:"pc", note:"", img:"img/pc10.jpg", url:"https://www.facebook.com/marketplace/item/37436453826000564/"},
- {t:"Gaming pc", p:650, was:null, loc:"Wahiawa, HI", cat:"pc", note:"", img:"img/pc11.jpg", url:"https://www.facebook.com/marketplace/item/1400997681792367/"},
- {t:"Cyber pc gaming pc", p:350, was:null, loc:"Honolulu, HI", cat:"pc", note:"", img:"img/pc12.jpg", url:"https://www.facebook.com/marketplace/item/1066253896460486/"},
+ {t:"HP OMEN 30L desktop", p:600, was:null, loc:"Honolulu, HI", cat:"pc", note:"", img:"img/pc1.jpg", url:"https://www.facebook.com/marketplace/item/1812022830086748/"},
+ {t:"Gaming Setup", p:1800, was:null, loc:"Kailua, HI", cat:"pc", note:"", img:"img/pc2.jpg", url:"https://www.facebook.com/marketplace/item/1149498157612014/"},
+ {t:"Pc with rtx 5060ti trio", p:2500, was:null, loc:"Wahiawa, HI", cat:"pc", note:"", img:"img/pc3.jpg", url:"https://www.facebook.com/marketplace/item/1632024761636393/"},
+ {t:"PC", p:650, was:1100, loc:"Pearl City, HI", cat:"pc", note:"", img:"img/pc4.jpg", url:"https://www.facebook.com/marketplace/item/2339705626794403/"},
+ {t:"Steam Machine Gaming Console PC", p:1130, was:null, loc:"Aiea, HI", cat:"pc", note:"", img:"img/pc5.jpg", url:"https://www.facebook.com/marketplace/item/1123319667342819/"},
+ {t:"Gaming PC (1440p)", p:1400, was:null, loc:"Honolulu, HI", cat:"pc", note:"", img:"img/pc6.jpg", url:"https://www.facebook.com/marketplace/item/1180216837910381/"},
+ {t:"NZXT PC", p:600, was:null, loc:"Waipahu, HI", cat:"pc", note:"", img:"img/pc7.jpg", url:"https://www.facebook.com/marketplace/item/1122497243973891/"},
+ {t:"Gaming Pc", p:2499, was:null, loc:"Honolulu, HI", cat:"pc", note:"", img:"img/pc8.jpg", url:"https://www.facebook.com/marketplace/item/1677440003972410/"},
+ {t:"Desktop set", p:1500, was:null, loc:"Waipahu, HI", cat:"pc", note:"", img:"img/pc9.jpg", url:"https://www.facebook.com/marketplace/item/4515491262058523/"},
+ {t:"2060 RTX Gaming PC", p:750, was:null, loc:"Honolulu, HI", cat:"pc", note:"", img:"img/pc10.jpg", url:"https://www.facebook.com/marketplace/item/2492868714537012/"},
+ {t:"LED PC", p:80, was:130, loc:"Waianae, HI", cat:"pc", note:"", img:"img/pc11.jpg", url:"https://www.facebook.com/marketplace/item/1847316193117764/"},
+ {t:"5060 2 RTX graphics pc with monitor, mouse, Dualsense controller(pearl white), 2 headsets", p:5000, was:7000, loc:"Wahiawa, HI", cat:"pc", note:"", img:"img/pc12.jpg", url:"https://www.facebook.com/marketplace/item/1739268767168239/"},
+ // Craigslist PCs (posted Oct 30–Nov 6)
+ {t:"Gaming or Work PC", p:900, was:null, loc:"Ewa Beach, HI", cat:"pc", note:"", img:"img/clpc1.jpg", src:"cl", date:"Nov 1", url:"https://www.craigslist.org/view/d/ewa-beach-gaming-or-work-pc/ernZqGa4wvo8zKFay75sVZ"},
  // Apple computers — Facebook Marketplace
- {t:"MacBook Pro 15\" Retina Mid - 16GB RAM / 512GB SSD WITH CHARGER • GREAT DEAL!", p:230, was:350, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac1.jpg", url:"https://www.facebook.com/marketplace/item/1095494486199911/"},
- {t:"2025 macbook air 13”", p:950, was:1000, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac2.jpg", url:"https://www.facebook.com/marketplace/item/1747268426609681/"},
- {t:"2024 14” MacBook Pro M3 500 GB", p:1100, was:1300, loc:"Wahiawa, HI", cat:"mac", note:"", img:"img/mac3.jpg", url:"https://www.facebook.com/marketplace/item/1036742535948942/"},
- {t:"2013 Apple MacBook Air - Intel Core i7, 8GB RAM", p:130, was:null, loc:"Wahiawa, HI", cat:"mac", note:"", img:"img/mac4.jpg", url:"https://www.facebook.com/marketplace/item/1644677030371016/"},
- {t:"MacBook Pro 15inch 2015 macOS Monterey 12.7.6", p:125, was:null, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac5.jpg", url:"https://www.facebook.com/marketplace/item/1669629930693899/"},
- {t:"Apple MacBook Air 11” (A1465)", p:60, was:100, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac6.jpg", url:"https://www.facebook.com/marketplace/item/989038580399746/"},
- {t:"13-Inch Apple MacBook Pro 2017", p:200, was:null, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac7.jpg", url:"https://www.facebook.com/marketplace/item/1819418492720722/"},
- {t:"Aloha's MacBook Pro - 2.5 GHz Dual-Core Intel Core i5", p:120, was:240, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac8.jpg", url:"https://www.facebook.com/marketplace/item/1128119449915702/"},
- {t:"MACBOOK AIR *SCREEN BROKEN* STILL WORKS", p:50, was:null, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac9.jpg", url:"https://www.facebook.com/marketplace/item/1434949225456802/"},
- {t:"MacBook M2", p:500, was:750, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac10.jpg", url:"https://www.facebook.com/marketplace/item/2308584593225141/"},
- {t:"Apple MacBook Pro Laptops", p:60, was:null, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac11.jpg", url:"https://www.facebook.com/marketplace/item/1418989437070365/"},
- {t:"Apple MacBook Air", p:140, was:null, loc:"Kapolei, HI", cat:"mac", note:"", img:"img/mac12.jpg", url:"https://www.facebook.com/marketplace/item/1518355413622530/"},
- // Craigslist Apple computers (posted Oct 23–30)
- {t:"Apple MacBook NEO 512GB with Touch ID in Color Indigo", p:620, was:null, loc:"Waikiki, HI", cat:"mac", note:"", img:"img/clmac1.jpg", src:"cl", date:"Oct 26", url:"https://www.craigslist.org/view/d/honolulu-apple-macbook-neo-512gb-with/kjzxkKmB5SkXVUXqA49MbJ"},
+ {t:"MacBook Pro (2017)", p:250, was:null, loc:"Mililani Town, HI", cat:"mac", note:"", img:"img/mac1.jpg", url:"https://www.facebook.com/marketplace/item/1614621403483738/"},
+ {t:"Macbook Laptop 2024 M3 Screen Issue", p:350, was:null, loc:"Kapolei, HI", cat:"mac", note:"", img:"img/mac2.jpg", url:"https://www.facebook.com/marketplace/item/1158134277139914/"},
+ {t:"2020 MacBook Air M1 256GB", p:425, was:null, loc:"Kailua, HI", cat:"mac", note:"", img:"img/mac3.jpg", url:"https://www.facebook.com/marketplace/item/4396113664034663/"},
+ {t:"Apple MacBook Air", p:100, was:null, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac4.jpg", url:"https://www.facebook.com/marketplace/item/1760673998356511/"},
+ {t:"Apple MacBook Pro (2015, 13-inch, Core i5, 512 GB SSD)", p:200, was:null, loc:"Kailua, HI", cat:"mac", note:"", img:"img/mac5.jpg", url:"https://www.facebook.com/marketplace/item/2650288852155199/"},
+ {t:"13-inch MacBook Air with the Apple M5 chip (2026 model)", p:1000, was:null, loc:"Kailua, HI", cat:"mac", note:"", img:"img/mac6.jpg", url:"https://www.facebook.com/marketplace/item/1593122148788772/"},
+ {t:"Apple MacBook Air M2 – 13.6” – 1TB SSD – Midnight", p:750, was:null, loc:"Kailua, HI", cat:"mac", note:"", img:"img/mac7.jpg", url:"https://www.facebook.com/marketplace/item/4140895629548844/"},
+ {t:"2019 MacBook Pro 💻", p:375, was:null, loc:"Kailua, HI", cat:"mac", note:"", img:"img/mac8.jpg", url:"https://www.facebook.com/marketplace/item/1518859693497772/"},
+ {t:"Apple MacBook Air Mid 2013", p:150, was:null, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac9.jpg", url:"https://www.facebook.com/marketplace/item/1651743066741836/"},
+ {t:"2015 MacBook Pro 15”", p:250, was:300, loc:"Honolulu, HI", cat:"mac", note:"", img:"img/mac10.jpg", url:"https://www.facebook.com/marketplace/item/4642080649447836/"},
+ {t:"MacBook Pro (Basically New)", p:750, was:null, loc:"Kapolei, HI", cat:"mac", note:"", img:"img/mac11.jpg", url:"https://www.facebook.com/marketplace/item/1805064527396827/"},
+ {t:"Mac book pro", p:180, was:null, loc:"Wahiawa, HI", cat:"mac", note:"", img:"img/mac12.jpg", url:"https://www.facebook.com/marketplace/item/1602523531089973/"},
+ // Craigslist Apple computers (posted Oct 30–Nov 6)
+ {t:"Apple MacBook Air 2025 M4 13\" 16GB RAM / 256GB", p:775, was:null, loc:"Kaimuki, HI", cat:"mac", note:"", img:"img/clmac1.jpg", src:"cl", date:"Nov 2", url:"https://www.craigslist.org/view/d/honolulu-apple-macbook-air-2025-gb-ram/fKkgP8Q9UX8mp2SHQJ31aR"},
+ {t:"Apple iMac M3 (2024 / 24\" / 16GB RAM and a 1TB SSD) - GREAT PRICE!", p:1199, was:null, loc:"Diamond Head, HI", cat:"mac", note:"", img:"img/clmac2.jpg", src:"cl", date:"Nov 2", url:"https://www.craigslist.org/view/d/honolulu-apple-imac-gb-ram-and-1tb-ssd/6C5pQ7q6EpdviuSKqC1Fed"},
  // Surveillance cameras — Facebook Marketplace
- {t:"Night Owl Security Camera System with DVR and 8 Cameras", p:400, was:null, loc:"Wahiawa, HI", cat:"cam", note:"", img:"img/cam1.jpg", url:"https://www.facebook.com/marketplace/item/1754806535773053/"},
- {t:"New Blink Wired Floodlight Camera", p:40, was:null, loc:"Kapolei, HI", cat:"cam", note:"", img:"img/cam2.jpg", url:"https://www.facebook.com/marketplace/item/2653115911784104/"},
- {t:"Lorex Security Camera System - Never Used (Open Box)", p:300, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam3.jpg", url:"https://www.facebook.com/marketplace/item/883610824493932/"},
- {t:"Samsung security cameras system", p:230, was:300, loc:"Aiea, HI", cat:"cam", note:"", img:"img/cam4.jpg", url:"https://www.facebook.com/marketplace/item/1107067725068956/"},
- {t:"Vivitar Smart Security High Definition Wi-Fi Camera", p:25, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam5.jpg", url:"https://www.facebook.com/marketplace/item/2483110375550369/"},
- {t:"Alarm.com Security Camera & Panel", p:30, was:120, loc:"Ewa Beach, HI", cat:"cam", note:"", img:"img/cam6.jpg", url:"https://www.facebook.com/marketplace/item/3366788660191889/"},
- {t:"4 Solar Cameras - Wireless Security System - Easy Install", p:160, was:200, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam7.jpg", url:"https://www.facebook.com/marketplace/item/1391728669822799/"},
- {t:"Blink floodlight camera white & 2k wireless mini", p:30, was:40, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam8.jpg", url:"https://www.facebook.com/marketplace/item/1429969072633719/"},
- {t:"Security camera", p:25, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam9.jpg", url:"https://www.facebook.com/marketplace/item/891711624026025/"},
- {t:"Night owl wired security DVR", p:150, was:null, loc:"Kaneohe, HI", cat:"cam", note:"", img:"img/cam10.jpg", url:"https://www.facebook.com/marketplace/item/1254298193450280/"},
- {t:"Arlo Pro 3 2k Security Camera Kit", p:50, was:null, loc:"Waimanalo, HI", cat:"cam", note:"", img:"img/cam11.jpg", url:"https://www.facebook.com/marketplace/item/1787822839035256/"},
- {t:"aosu Solar-Powered Security Camera System & IndoorCam P1 Pro Bundle", p:120, was:null, loc:"Wahiawa, HI", cat:"cam", note:"", img:"img/cam12.jpg", url:"https://www.facebook.com/marketplace/item/2195303458066297/"},
+ {t:"SimpliSafe Alarm System", p:100, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam1.jpg", url:"https://www.facebook.com/marketplace/item/1678069227067182/"},
+ {t:"Blink 2k Wireless 5 Security Camera System", p:150, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam2.jpg", url:"https://www.facebook.com/marketplace/item/1647124977089693/"},
+ {t:"4K Dash Camera - Brand New", p:60, was:null, loc:"Waipahu, HI", cat:"cam", note:"", img:"img/cam3.jpg", url:"https://www.facebook.com/marketplace/item/2666098437196029/"},
+ {t:"Ring Camera", p:100, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam4.jpg", url:"https://www.facebook.com/marketplace/item/1179790881378452/"},
+ {t:"Unifi G6 180 Security Camera (New In Box Unopened)", p:320, was:null, loc:"Waipahu, HI", cat:"cam", note:"", img:"img/cam5.jpg", url:"https://www.facebook.com/marketplace/item/1734524891577734/"},
+ {t:"GardePro E6 Trail Camera WIFI", p:40, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam6.jpg", url:"https://www.facebook.com/marketplace/item/1424053846585251/"},
+ {t:"Blink Outdoor Security Camera System - 4 Cameras", p:100, was:null, loc:"Kailua, HI", cat:"cam", note:"", img:"img/cam7.jpg", url:"https://www.facebook.com/marketplace/item/2385372238868159/"},
+ {t:"Security Camera - Please Read Description Before Messaging", p:50, was:null, loc:"Waianae, HI", cat:"cam", note:"", img:"img/cam8.jpg", url:"https://www.facebook.com/marketplace/item/1116715571062075/"},
+ {t:"EverSecu WiFi Smart Light Bulb Security Camera (Brand New)", p:20, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam9.jpg", url:"https://www.facebook.com/marketplace/item/1668389158297/"},
+ {t:"Brand new unopened 3-Cameras Vehicle Blackbox DVR 4K Ultra HD", p:35, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam10.jpg", url:"https://www.facebook.com/marketplace/item/2812075779173604/"},
+ {t:"Lot of 4 Hunting Trail Cameras", p:60, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/cam11.jpg", url:"https://www.facebook.com/marketplace/item/4582901648659593/"},
+ // Craigslist Surveillance cameras (posted Oct 30–Nov 6)
+ {t:"Blink 2k Wireless 5 Security Camera System", p:150, was:null, loc:"Honolulu, HI", cat:"cam", note:"", img:"img/clcam1.jpg", src:"cl", date:"Nov 4", url:"https://www.craigslist.org/view/d/honolulu-blink-2k-wireless-security/3su84CPG9iTZFyD85s7r96"},
  // Weight lifting — Facebook Marketplace
- {t:"110lbs adjustable dumbbells and barbell", p:200, was:220, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym1.jpg", url:"https://www.facebook.com/marketplace/item/1875893010494485/"},
- {t:"FitRx Adjustable Dumbbells", p:230, was:null, loc:"Pearl City, HI", cat:"gym", note:"", img:"img/gym2.jpg", url:"https://www.facebook.com/marketplace/item/1807938523879652/"},
- {t:"Brand New 15lb Olympic Curl Bar", p:30, was:null, loc:"Kapolei, HI", cat:"gym", note:"", img:"img/gym3.jpg", url:"https://www.facebook.com/marketplace/item/1394027815988021/"},
- {t:"Weights 145lbs", p:50, was:null, loc:"Mililani Town, HI", cat:"gym", note:"", img:"img/gym4.jpg", url:"https://www.facebook.com/marketplace/item/2233453243878962/"},
- {t:"210 Pounds of Weider Weights", p:200, was:null, loc:"Kaneohe, HI", cat:"gym", note:"", img:"img/gym5.jpg", url:"https://www.facebook.com/marketplace/item/896457702982858/"},
- {t:"Bench and weights for sale!", p:450, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym6.jpg", url:"https://www.facebook.com/marketplace/item/2426646631472433/"},
- {t:"Weight bench", p:100, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym7.jpg", url:"https://www.facebook.com/marketplace/item/1377703600857460/"},
- {t:"Small weight set", p:150, was:null, loc:"Aiea, HI", cat:"gym", note:"", img:"img/gym8.jpg", url:"https://www.facebook.com/marketplace/item/1915581823221485/"},
- {t:"Total 70lbs 1 inch weights with rubber", p:70, was:null, loc:"Aiea, HI", cat:"gym", note:"", img:"img/gym9.jpg", url:"https://www.facebook.com/marketplace/item/1048438017806181/"},
- {t:"Weight Set - Bench, Bar, Weights", p:195, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym10.jpg", url:"https://www.facebook.com/marketplace/item/1034567906262615/"},
- {t:"Weights", p:250, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym11.jpg", url:"https://www.facebook.com/marketplace/item/1040518402155683/"},
- {t:"*NEW 100lb dumbell weight set with rack", p:160, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym12.jpg", url:"https://www.facebook.com/marketplace/item/2263624614448197/"},
- // Craigslist Weight lifting (posted Oct 23–30)
- {t:"Weight rack & weights", p:300, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/clgym1.jpg", src:"cl", date:"Oct 27", url:"https://www.craigslist.org/view/d/honolulu-weight-rack-weights/d969FZTdPWAZTiLdJBUb7D"},
- {t:"Ironmaster's Dumbbells, Self Spotting Machine, Super Bench PRO V2", p:9995, was:null, loc:"Salt Lake, HI", cat:"gym", note:"Full pro setup", img:"img/clgym2.jpg", src:"cl", date:"Oct 24", url:"https://www.craigslist.org/view/d/honolulu-ironmasters-dumbbells-self/1kAKH68bJeKgq7DF5n1qdu"},
- {t:"Heavy duty weight lifting bench", p:49, was:null, loc:"Waianae, HI", cat:"gym", note:"", img:"img/clgym3.jpg", src:"cl", date:"Oct 23", url:"https://www.craigslist.org/view/d/waianae-heavy-duty-weight-lifting-bench/dFw9KbvyDCvbcS4EL7mfPs"},
+ {t:"EZ Curl Bar with Weight Plates", p:30, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym1.jpg", url:"https://www.facebook.com/marketplace/item/1796005941606189/"},
+ {t:"Weider Pro 6900 Home Gym - FREE", p:0, was:null, loc:"Kailua, HI", cat:"gym", note:"", img:"img/gym2.jpg", url:"https://www.facebook.com/marketplace/item/2601184583720296/"},
+ {t:"Weight set", p:150, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym3.jpg", url:"https://www.facebook.com/marketplace/item/2621535628351955/"},
+ {t:"25 lb American barbell weight plates", p:100, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym4.jpg", url:"https://www.facebook.com/marketplace/item/1425339469257512/"},
+ {t:"Barbell", p:50, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym5.jpg", url:"https://www.facebook.com/marketplace/item/2483120922179932/"},
+ {t:"Rubber dumbbell 20", p:59, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym6.jpg", url:"https://www.facebook.com/marketplace/item/1475565061129274/"},
+ {t:"Weights", p:20, was:200, loc:"Waipahu, HI", cat:"gym", note:"", img:"img/gym7.jpg", url:"https://www.facebook.com/marketplace/item/2331333987624774/"},
+ {t:"Modular Weight Set", p:55, was:null, loc:"Aiea, HI", cat:"gym", note:"", img:"img/gym8.jpg", url:"https://www.facebook.com/marketplace/item/29295063686789690/"},
+ {t:"Gold's Gym Switch Plate 100 Adjustable Dumbbell Set", p:350, was:null, loc:"Honolulu, HI", cat:"gym", note:"", img:"img/gym9.jpg", url:"https://www.facebook.com/marketplace/item/1643714243875197/"},
+ {t:"Weights", p:125, was:null, loc:"Kailua, HI", cat:"gym", note:"", img:"img/gym10.jpg", url:"https://www.facebook.com/marketplace/item/1683268736504639/"},
+ {t:"Hex Trap Bar & Bumper Weights", p:275, was:350, loc:"Kapolei, HI", cat:"gym", note:"", img:"img/gym11.jpg", url:"https://www.facebook.com/marketplace/item/1429662222080090/"},
+ // Craigslist Weight lifting (posted Oct 30–Nov 6)
+ {t:"Hele Fitness 45lbs weight ( 4 plates) Brand new", p:300, was:null, loc:"Oahu, HI", cat:"gym", note:"", img:"img/clgym1.jpg", src:"cl", date:"Nov 1", url:"https://www.craigslist.org/view/d/honolulu-hele-fitness-45lbs-weight/xyCSGHcJujg9EEy942DieX"},
 ];
 const CATLBL = { tv: "TV", pc: "PC", mac: "APPLE", cam: "CAMERA", gym: "WEIGHTS" };
 
